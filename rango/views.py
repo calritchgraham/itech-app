@@ -13,7 +13,6 @@ from django.shortcuts import redirect
 from django.contrib.auth.decorators import login_required
 from datetime import datetime
 from rango.bing_search import run_query
-from django.http import HttpResponse
 
 def index(request):
     # Construct a dictionary to pass to the template engine as its context.
@@ -258,7 +257,8 @@ def search(request):
     return render(request, 'rango/search.html', context_dict)
 
 class LikeCategoryView(View):
-    @method_decorator(login_required)
+    
+    # @method_decorator(login_required)
     def get(self, request):
         category_id = request.GET['category_id']
 
