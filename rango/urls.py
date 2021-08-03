@@ -17,4 +17,5 @@ urlpatterns = [
     path('restricted/', views.restricted, name='restricted'),
     path('search/', views.search, name='search'),
     path('like_category/', views.LikeCategoryView.as_view(), name='like_category'),
+    path('suggest/', views.CategorySuggestionView.as_view(), name='suggest'),
 ]

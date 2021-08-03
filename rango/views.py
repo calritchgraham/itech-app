@@ -13,14 +13,11 @@ from django.shortcuts import redirect
 from django.contrib.auth.decorators import login_required
 from datetime import datetime
 from rango.bing_search import run_query
-<<<<<<< HEAD
 from django.views.generic import TemplateView
 from django.contrib.auth.mixins import LoginRequiredMixin
-=======
 from django.utils.decorators import method_decorator
 from django.views import View
 
->>>>>>> search-and-filter
 
 def index(request):
     # Construct a dictionary to pass to the template engine as its context.
@@ -268,6 +265,18 @@ def search(request):
         
     return render(request, 'rango/search.html', context_dict)
 
+def get_category_list(max_results=0, starts_with=''):
+    category_list = []
+
+    if starts_with:
+        category_list = Category.objects.filter(name__istartswith=starts_with)
+    
+    if max_results > 0:
+        if len(category_list) > max_results:
+            category_list = category_list[:max_results]
+    
+    return category_list
+
 class LikeCategoryView(View):
     @method_decorator(login_required)
     def get(self, request):
@@ -284,3 +293,19 @@ class LikeCategoryView(View):
         category.save()
 
         return HttpResponse(category.likes)
+
+class CategorySuggestionView(View):
+    def get(self, request):
+        if 'suggestion' in request.GET:
+            suggestion = request.GET['suggestion']
+        else:
+            suggestion = ''
+        
+        category_list = get_category_list(max_results=8, starts_with=suggestion)
+
+        if len(category_list) == 0:
+            category_list = Category.objects.order_by('-likes')
+        
+        return render(request, 'rango/categories.html', {'categories': category_list})
+
+
