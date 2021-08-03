@@ -245,10 +245,13 @@ def visitor_cookie_handler(request):
 
 def search(request):
     result_list = []
+    context_dict = {}
 
     if request.method == 'POST':
         query = request.POST['query'].strip()
         if query:
             result_list = run_query(query)
-
-    return render(request, 'rango/search.html', {'result_list': result_list})
+    
+    context_dict = {'result_list': result_list, 'query': query}
+        
+    return render(request, 'rango/search.html', context_dict)
