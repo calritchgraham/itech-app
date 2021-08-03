@@ -256,7 +256,7 @@ def search(request):
         
     return render(request, 'rango/search.html', context_dict)
 
-class LikeCategoryView(View):
+class LikeCategoryView():
     
     # @method_decorator(login_required)
     def get(self, request):

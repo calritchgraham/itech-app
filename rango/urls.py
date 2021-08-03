@@ -16,5 +16,5 @@ urlpatterns = [
     path('logout/', views.user_logout, name='logout'),
     path('restricted/', views.restricted, name='restricted'),
     path('search/', views.search, name='search'),
-    path('like_category/', views.LikeCategoryView.as_view(), name='like_category'),
+    # path('like_category/', views.LikeCategoryView.as_view(), name='like_category'),
 ]
