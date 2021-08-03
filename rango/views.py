@@ -13,6 +13,8 @@ from django.shortcuts import redirect
 from django.contrib.auth.decorators import login_required
 from datetime import datetime
 from rango.bing_search import run_query
+from django.views.generic import TemplateView
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 def index(request):
     # Construct a dictionary to pass to the template engine as its context.
@@ -32,6 +34,10 @@ def index(request):
           
     response = render(request, 'rango/index.html', context=context_dict)
     return response
+
+
+class HomeView(LoginRequiredMixin, TemplateView):
+    template_name = "index.html" 
 
 
 def about(request):
