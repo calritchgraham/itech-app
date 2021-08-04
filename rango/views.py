@@ -306,8 +306,8 @@ class CategorySuggestionView(View):
 
         # for c in category_list:
         #     print(c)
-        # if len(category_list) == 0:
-        #     category_list = [Category.objects.order_by('-likes')]
+        if len(category_list) == 0:
+            category_list = [Category.objects.order_by('-likes')]
 
         return render(request, 'rango/all_categories.html', {'returned': category_list})
 

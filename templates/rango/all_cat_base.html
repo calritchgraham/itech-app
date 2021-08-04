@@ -1,0 +1,49 @@
+{% load staticfiles %}
+{% load rango_template_tags %}
+<html>
+    <head>
+        <title>
+                Categories       
+        </title>
+    </head>
+    <body>
+        <div>
+        <h1>Categories</h1> 
+            <div class="w-75 ml-3">
+                <input type="search"
+                id="search-input"
+                class="form-control ds-input"
+                placeholder="Search..." />
+            </div>
+        </div>
+        <div>
+        {% block body_block %}
+        {% endblock %}
+        </div>
+        <div> 
+    <strong>Haven't found what you are looking for? Try searching the web.</strong>
+    <form class="form-inline"
+        id="user-form"
+            method="post"
+            action="{% url 'rango:search' %}">
+    {% csrf_token %}
+    <div class="form-group">
+        <input class="form-control"
+            type="text"
+            size="50"
+            name="query"
+            value ="{{ query }}"
+            id="query" />
+    </div>
+
+    <button class="btn btn-primary"
+            type="submit"
+            name="submit">Search</button>
+    </form>
+</div>
+         <hr />
+
+            <script src="{% static "js/jquery-3.3.1.min.js" %}" crossorigin="anonymous"></script>
+            <script src="{% static 'js/rango-ajax.js' %}" crossorigin="anonymous"></script>
+        </body>
+</html>
