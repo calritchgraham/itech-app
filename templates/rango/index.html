@@ -18,6 +18,13 @@
                 <ul class="navbar-nav">
                     <li class="nav-item"><a class="nav-link active" href="{% url 'rango:about' %}">About</a></li>
                 </ul>
+                <em>
+                        {% if user.is_authenticated %}
+                        howdy {{ user.username }}!<br />
+                    {% else %}
+                        hey there partner!<br />
+                    {% endif %}
+                </em>
                 <form class="me-auto search-form" target="_self">
                     <div class="d-flex align-items-center"></div>
                 </form><a href="{% url 'rango:register' %}" style="padding-right: 14px;">Sign up</a><a class="btn btn-light action-button" role="button" href="{% url 'rango:login' %}">Login</a>
@@ -27,7 +34,18 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6" style="border-color: var(--bs-dark);opacity: 1;">
-                <h1>Most Viewed Categories</h1>
+                <h1>Most Liked Categories</h1>
+                {% if categories %}
+				    <ul>
+				    {% for category in categories %}
+				    <li>
+				    	<a href="{% url 'rango:show_category' category.slug %}">{{ category.name }}</a>
+				    </li>
+				    {% endfor %}
+				    </ul>
+			    {% else %}
+				    <strong>There are no categories present.</strong>
+			    {% endif %}
             </div>
             <div class="col-md-6">
                 <h1>Most Liked Pages</h1>
