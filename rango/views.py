@@ -24,7 +24,7 @@ def index(request):
     # Note the key boldmessage matches to {{ boldmessage }} in the template!
   
     category_list = Category.objects.order_by('-likes')[:5]
-    page_list = Page.objects.order_by('-views')[:5]
+    page_list = Page.objects.order_by('-likes')[:5]
     video_list = Video.objects.order_by('-views')[:5]
     
     context_dict = {}
