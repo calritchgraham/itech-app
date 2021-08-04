@@ -25,21 +25,16 @@
                         hey there partner!<br />
                     {% endif %}
                 </em>
+                {% if user.is_authenticated %}
                 <form class="me-auto search-form" target="_self">
                     <div class="d-flex align-items-center"></div>
-
                 </form>
-
-                {% if user.is_authenticated %}
-
-                <a class="btn btn-light action-button" role="button" href="{% url 'rango:logout' %}">Log out</a>
-                
+                <a class="btn btn-light action-button" role="button" href="{% url 'auth_logout' %}?next={% url 'rango:index' %}">Logout</a>
                 {% else %}
-
-                <a href="{% url 'rango:register' %}" style="padding-right: 14px;">Sign up</a><a class="btn btn-light action-button" role="button" href="{% url 'rango:login' %}">Login</a>
-            
-                {% endif %}
-
+                <form class="me-auto search-form" target="_self">
+                    <div class="d-flex align-items-center"></div>
+                </form><a href="{% url 'registration_register' %}" style="padding-right: 14px;">Sign up</a><a class="btn btn-light action-button" role="button" href="{% url 'auth_login' %}">Login</a>
+                    {% endif %}
             </div>
         </div>
     </nav>

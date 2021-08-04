@@ -43,9 +43,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'registration',
     'rango',
     'social_django'
-
 ]
 
 MIDDLEWARE = [
@@ -84,7 +84,6 @@ AUTHENTICATION_BACKENDS = (
     'social_core.backends.facebook.FacebookOAuth2',
     'social_core.backends.twitter.TwitterOAuth',
     'social_core.backends.github.GithubOAuth2',
-
     'django.contrib.auth.backends.ModelBackend',
 )
 
@@ -145,15 +144,25 @@ STATIC_URL = '/static/'
 MEDIA_ROOT = MEDIA_DIR
 MEDIA_URL = '/media/'
 
-LOGIN_URL = 'rango:login'
+# LOGIN_URL = 'rango:login'
 
 LOGOUT_URL = 'rango:logout'
-LOGIN_REDIRECT_URL = 'rango:index'
 
 # LOGIN_URL = 'login'
 # LOGOUT_URL = 'logout'
 # LOGIN_REDIRECT_URL = 'home'
 
 
-SOCIAL_AUTH_FACEBOOK_KEY = '367769551417810'  # App ID
-SOCIAL_AUTH_FACEBOOK_SECRET = 'cda5014e3100c978d32c4d021abd6b7e'  # App Secret
+SOCIAL_AUTH_FACEBOOK_KEY = '341813660916258'  # App ID
+SOCIAL_AUTH_FACEBOOK_SECRET = '7d28d02d4da75b0c3e20925072f53ceb'  # App Secret
+
+
+# If True, users can register.
+REGISTRATION_OPEN = True
+# If True, the user will be automatically logged in after registering.
+REGISTRATION_AUTO_LOGIN = True
+# The URL that Django redirects users to after logging in.
+LOGIN_REDIRECT_URL = 'rango:index'
+# The page users are directed to if they are not logged in.
+# This was set in a previous chapter. The registration package uses this, too.
+LOGIN_URL = 'auth_login'

@@ -32,34 +32,23 @@
                 </em>
                 <form class="me-auto search-form" target="_self">
                     <div class="d-flex align-items-center"></div>
-                </form><a href="{% url 'rango:register' %}" style="padding-right: 14px;">Sign up</a><a class="btn btn-light action-button" role="button" href="#">Login</a>
+                </form><a href="{% url 'registration_register' %}" style="padding-right: 14px;">Sign up</a><a class="btn btn-light action-button" role="button" href="#">Login</a>
             </div>
         </div>
     </nav>
     <section class="login-dark">
-        <form id="login_form" method="post" action="{% url 'rango:login' %}">
+        <form id="login_form" method="post" action="{% url 'auth_login' %}">
             <h2 class="visually-hidden">Login Form</h2>
             <div class="illustration"><i class="icon ion-ios-locked-outline"></i></div>
             {% csrf_token %}
             <div class="mb-3"><input type="text" class="form-control" name="username" placeholder="Username" /></div>
             <div class="mb-3"><input type="password" class="form-control" name="password" placeholder="Password" /></div>
             <div class="mb-3"><button class="btn btn-primary d-block w-100" type="submit">Log In</button></div>
+            <div> <p><strong>-- OR --</strong></p>
+               <a href="{% url 'social:begin' 'facebook' %}" style="color:darkgray" >Login with Facebook</a>
+            </div>
         </form>
     </section>
-    <div>
-        <ul>
-        {% if user.is_authenticated %}
-            <li><a href="{% url 'rango:restricted' %}">Restricted Page</a></li>
-            <li><a href="{% url 'rango:add_category' %}">Add a New Category</a></li>
-            <li><a href="{% url 'auth_logout' %}?next={% url 'rango:index' %}">Logout</a></li>
-            {% else %}
-                <li><a href="{% url 'registration_register' %}">Sign Up</a></li>
-                <li><a href="{% url 'auth_login' %}">Login</a></li>
-            {% endif %}
-                <li><a href="{% url 'rango:about' %}">About</a></li>
-                <li><a href="{% url 'rango:index' %}">Index</a></li>
-            </ul>
-       </div>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
 </body>
 
