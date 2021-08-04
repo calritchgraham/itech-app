@@ -46,7 +46,6 @@ INSTALLED_APPS = [
     'registration',
     'rango',
     'social_django'
-    
 ]
 
 MIDDLEWARE = [
@@ -85,7 +84,6 @@ AUTHENTICATION_BACKENDS = (
     'social_core.backends.facebook.FacebookOAuth2',
     'social_core.backends.twitter.TwitterOAuth',
     'social_core.backends.github.GithubOAuth2',
-
     'django.contrib.auth.backends.ModelBackend',
 )
 
@@ -155,8 +153,8 @@ LOGOUT_URL = 'rango:logout'
 # LOGIN_REDIRECT_URL = 'home'
 
 
-SOCIAL_AUTH_FACEBOOK_KEY = '367769551417810'  # App ID
-SOCIAL_AUTH_FACEBOOK_SECRET = 'cda5014e3100c978d32c4d021abd6b7e'  # App Secret
+SOCIAL_AUTH_FACEBOOK_KEY = '341813660916258'  # App ID
+SOCIAL_AUTH_FACEBOOK_SECRET = '7d28d02d4da75b0c3e20925072f53ceb'  # App Secret
 
 
 # If True, users can register.
