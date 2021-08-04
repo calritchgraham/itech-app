@@ -1,12 +1,19 @@
-{% extends 'rango/base.html' %}
+{% extends 'rango/all_cat_base.html' %}
 {% load staticfiles %}
 
-% block title_block %}
-     About Rango
- {% endblock %}
+{% block body_block %}		
+<div id="categories-listing">
+    <ul>
+	{% if returned %}	
+		{% for category in returned %}
+						<li>
+							<a href="{% url 'rango:show_category' category.slug %}">{{ category.name }}</a>
+						</li>
+						{% endfor %}
+						</ul>
+						{% else %}
+						<strong>There are no categories matching your search criteria.</strong>
+					{% endif %}		   
+</div>
 
-{% block body_block %}
-<li><a href="{% url 'rango:index' %}">Index</a></li>
-{% get_category_list category %}
-
-{% endblock %}
+{% endblock %} 
