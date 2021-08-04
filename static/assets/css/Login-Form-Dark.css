@@ -23,7 +23,7 @@
   text-align: center;
   padding: 15px 0 20px;
   font-size: 100px;
-  color: #2980ef;
+  color: rgb(86,198,198);
 }
 
 .login-dark form .form-control {
@@ -37,7 +37,7 @@
 }
 
 .login-dark form .btn-primary {
-  background: #214a80;
+  background: rgb(86,198,198);
   border: none;
   border-radius: 4px;
   padding: 11px;
