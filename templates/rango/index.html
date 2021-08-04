@@ -27,7 +27,19 @@
                 </em>
                 <form class="me-auto search-form" target="_self">
                     <div class="d-flex align-items-center"></div>
-                </form><a href="{% url 'rango:register' %}" style="padding-right: 14px;">Sign up</a><a class="btn btn-light action-button" role="button" href="{% url 'rango:login' %}">Login</a>
+
+                </form>
+
+                {% if user.is_authenticated %}
+
+                <a class="btn btn-light action-button" role="button" href="{% url 'rango:logout' %}">Log out</a>
+                
+                {% else %}
+
+                <a href="{% url 'rango:register' %}" style="padding-right: 14px;">Sign up</a><a class="btn btn-light action-button" role="button" href="{% url 'rango:login' %}">Login</a>
+            
+                {% endif %}
+
             </div>
         </div>
     </nav>
