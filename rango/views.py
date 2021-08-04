@@ -298,14 +298,27 @@ class CategorySuggestionView(View):
     def get(self, request):
         if 'suggestion' in request.GET:
             suggestion = request.GET['suggestion']
+            
         else:
             suggestion = ''
         
         category_list = get_category_list(max_results=8, starts_with=suggestion)
 
-        if len(category_list) == 0:
-            category_list = Category.objects.order_by('-likes')
-        
-        return render(request, 'rango/categories.html', {'categories': category_list})
+        # for c in category_list:
+        #     print(c)
+        # if len(category_list) == 0:
+        #     category_list = [Category.objects.order_by('-likes')]
+
+        return render(request, 'rango/all_categories.html', {'returned': category_list})
+
+class AllCategories(View):
+    def get(self, request):
+        category_list = Category.objects.order_by('-likes')
+
+        return render(request, 'rango/all_categories.html', {'returned': category_list})
+
+
+
+
 
 

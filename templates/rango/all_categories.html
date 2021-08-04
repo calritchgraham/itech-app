@@ -1,12 +1,35 @@
 {% extends 'rango/base.html' %}
 {% load staticfiles %}
 
-% block title_block %}
-     About Rango
+{% block title_block %}
+     Categories
  {% endblock %}
 
-{% block body_block %}
-<li><a href="{% url 'rango:index' %}">Index</a></li>
-{% get_category_list category %}
+ {% block body_block %}
+ <h1>Categories</h1>	
+ <div>
+	<input type="search"
+	id="search-input"
+	class="form-control ds-input"
+	placeholder="Search..." />
+</div>
 
-{% endblock %}
+
+
+{% if returned %}
+			    <ul>
+				    {% for category in returned %}
+				    <li>
+				    	<a href="{% url 'rango:show_category' category.slug %}">{{ category.name }}</a>
+				    </li>
+				    {% endfor %}
+				    </ul>
+			    {% else %}
+				    <strong>There are no categories that meet your search criteria.  Try searching the web</strong>
+					<div>
+						<div class="w-75 ml-3">
+						<input type="search" id="search-input" class="form-control ds-input" placeholder="Search..." />
+					</div>
+			    {% endif %}	
+</div>
+{% endblock %} 
