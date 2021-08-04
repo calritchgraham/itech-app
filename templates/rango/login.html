@@ -37,12 +37,12 @@
         </div>
     </nav>
     <section class="login-dark">
-        <form method="post">
+        <form id="login_form" method="post" action="{% url 'rango:login' %}">
             <h2 class="visually-hidden">Login Form</h2>
             <div class="illustration"><i class="icon ion-ios-locked-outline"></i></div>
             {% csrf_token %}
-            <div class="mb-3"><input class="form-control" type="text" name="email" placeholder="Email"></div>
-            <div class="mb-3"><input class="form-control" type="password" name="password" placeholder="Password"></div>
+            <div class="mb-3"><input type="text" class="form-control" name="username" placeholder="Username" /></div>
+            <div class="mb-3"><input type="password" class="form-control" name="password" placeholder="Password" /></div>
             <div class="mb-3"><button class="btn btn-primary d-block w-100" type="submit">Log In</button></div>
         </form>
     </section>
