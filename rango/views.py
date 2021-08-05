@@ -296,6 +296,40 @@ class LikeCategoryView(View):
 
         return HttpResponse(category.likes)
 
+class LikePageView(View):
+    @method_decorator(login_required)
+    def get(self, request):
+        page_id = request.GET['page_id']
+
+        try:
+            page = Page.objects.get(id=int(page_id))
+        except Page.DoesNotExist:
+            return HttpResponse(-1)
+        except ValueError:
+            return HttpResponse(-1)
+        
+        page.likes = page.likes + 1
+        page.save()
+
+        return HttpResponse(page.likes)
+
+class LikeVideoView(View):
+    @method_decorator(login_required)
+    def get(self, request):
+        video_id = request.GET['category_id']
+
+        try:
+            video = Video.objects.get(id=int(video_id))
+        except Video.DoesNotExist:
+            return HttpResponse(-1)
+        except ValueError:
+            return HttpResponse(-1)
+        
+        video.likes = video.likes + 1
+        video.save()
+
+        return HttpResponse(video.likes)
+
 class CategorySuggestionView(View):
     def get(self, request):
         if 'suggestion' in request.GET:
