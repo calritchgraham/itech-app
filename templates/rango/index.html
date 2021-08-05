@@ -6,7 +6,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6" style="border-color: var(--bs-dark);opacity: 1;padding:27px">
-                <h1>Most Liked Categories</h1>
+                <h1 class="text-light">Most Liked Categories</h1>
                 {% if categories %}
 				    <ul style="background: var(--bs-light);opacity: 0.75">
 				    {% for category in categories %}
@@ -20,7 +20,7 @@
 			    {% endif %}
             </div>
             <div class="col-md-6" style="padding:27px">
-                <h1>Most Liked Pages</h1>
+                <h1 class="text-light">Most Liked Pages</h1>
                 {% if pages %}
 			        <ul style="background: var(--bs-light);opacity:0.75">
 				    {% for page in pages %}
@@ -35,7 +35,7 @@
             </div>
             
             <div class="col-md-6" style="padding:27px">
-                <h1>Most Liked Videos</h1>
+                <h1 class="text-light">Most Liked Videos</h1>
                 {% if videos %}
 			        <ul style="background: var(--bs-light);opacity:0.75">
 				    {% for video in videos %}

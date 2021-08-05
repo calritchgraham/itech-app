@@ -23,15 +23,16 @@
                 <div class="text-center text-light">
                             <h2 id="like_count">{{ category.name }} has {{ category.likes }} likes! </h2> 
                             {% if user.is_authenticated %}
-                            <button id="like_btn" data-categoryid="{{ category.id }}" class="btn btn-primary btn-sm" type="button">
+                            <button id="like_btn" data-categoryid="{{ category.id }}" style="background-color:rgb(86,198,198); color:white;"class="btn btn-light action-button" type="button">
                                 <span data-feather="thumbs-up"></span>
                                 Like Category
                             </button>
+                        </br>
                             {% endif %}
                         </div>
                     </div>
                 </div>
-            <div class="col-md-6"style="background:white; opacity:0.75;">
+            <div class="col-md-6"style="background:white; opacity:0.75;padding:10px 0px 0px 10px">
                 <div id="page-listing"> 
                     <h3>{{ category.name }} pages: </h3>
                     {% if pages %}
@@ -44,7 +45,7 @@
                     <strong>No pages currently in category.</strong>
                     {% endif %}
                     {% if user.is_authenticated %}
-                    <a href="{% url 'rango:add_page' category.slug %}">Add Page</a><br />
+                    <a class="btn btn-light action-button" role="button" href="{% url 'rango:add_page' category.slug %}">Add Page</a>
                     <!-- <a href="{% url 'rango:add_video' category.slug %}">Add Video</a><br /> -->
                     {% endif %}
                     {% else %}
@@ -64,7 +65,7 @@
             <strong>No videos currently in category.</strong>
             {% endif %}
             {% if user.is_authenticated %}
-            <a href="{% url 'rango:add_video' category.slug %}">Add Video</a><br />
+            <a class="btn btn-light action-button" role="button" href="{% url 'rango:add_video' category.slug %}">Add Video</a><br />
             {% endif %}
         </div>
     </div>
