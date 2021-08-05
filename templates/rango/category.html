@@ -16,6 +16,17 @@
             <div class="col-md-12"> 
                 <h1 class="text-center text-light">{{ category.name }}</h1>
             </div>
+         <div>
+            <div class="col-md-6" style="border-color: var(--bs-dark);opacity: 1;padding:27px">
+                <form  method="get">
+                    <input type="search" name="q" placeholder="Search Pages and Videos" size="50" class="form-control">
+                  </form>
+                  <br>
+                  <form method="get" action="{% url 'rango:show_category' category.slug %}">
+                    <button type="submit" style="background-color:rgb(86,198,198); color:white;">Search Again</button>
+                </form>
+                  <br>
+         </div>   
         </div>
         <div class="row" >
             <div class="col-md-6">
@@ -54,14 +65,10 @@
                         {% endfor %}
                     </ul>
                     {% else %}
-                    <strong>No pages currently in category.</strong>
+                    <strong>No pages currently available.</strong>
                     {% endif %}
                     {% if user.is_authenticated %}
-<<<<<<< HEAD
                     <a class="btn btn-light action-button" role="button" href="{% url 'rango:add_page' category.slug %}" style="background-color:rgb(55, 0, 255); color:white;">Add Page</a>
-=======
-                    <a class="btn btn-light action-button" role="button" style="background-color:rgb(86,198,198); color:white;" href="{% url 'rango:add_page' category.slug %}">Add Page</a>
->>>>>>> 20a5489 (ammended buttons on all_cat)
                     <!-- <a href="{% url 'rango:add_video' category.slug %}">Add Video</a><br /> -->
                     {% endif %}
                     {% else %}
@@ -90,17 +97,31 @@
                 {% endfor %}
             </ul>
             {% else %}
-            <strong>No videos currently in category.</strong>
+            <strong>No videos currently available.</strong>
             {% endif %}
             {% if user.is_authenticated %}
-<<<<<<< HEAD
             <a class="btn btn-light action-button" role="button" href="{% url 'rango:add_video' category.slug %}" style="background-color:rgb(55, 0, 255); color:white;">Add Video</a><br />
-=======
-            <a class="btn btn-light action-button" style="background-color:rgb(86,198,198); color:white;" role="button" href="{% url 'rango:add_video' category.slug %}">Add Video</a><br />
->>>>>>> 20a5489 (ammended buttons on all_cat)
             {% endif %}
         </div>
         </div>
     </div>
+
+    <div>
+   <br>
+        <form class="form-inline"
+            id="user-form"
+                method="post"
+                action="{% url 'rango:search' %}"
+                >
+        {% csrf_token %}
+        <div class="form-group">
+            <input class="form-control"
+                type="text"
+                size="50"
+                name="query"
+                placeholder="Haven't found what you are looking for? Search the web..."
+                value ="{{ query }}"
+                id="query" />
+        </div>
 {% endblock %}
 
