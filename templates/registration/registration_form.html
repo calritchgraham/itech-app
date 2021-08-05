@@ -1,13 +1,37 @@
-{% extends 'rango/base.html' %}
-{% block title_block %}
-Register
-{% endblock %}
+<!DOCTYPE html>
+<html lang="en">
 
-{% block body_block %}
-<h1>Register Here</h1>
-<form method="post" action=".">
-{% csrf_token %}
-{{ form.as_p }}
-<input type="submit" value="Register" />
-</form>
-{% endblock %}
+<head>
+    <meta charset="utf-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Untitled</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="assets/css/Footer-Basic.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="assets/css/Login-Form-Dark.css">
+    <link rel="stylesheet" href="assets/css/Navigation-with-Search.css">
+    <link rel="stylesheet" href="assets/css/Registration-Form-with-Photo.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body style="background: url('/static/assets/img/rango_bg.1.jpg') top / auto;">
+    <section class="register-photo">
+        <div class="form-container">
+            <form method="post">
+                <h2 class="text-center" ><strong>Create</strong> an account.</h2>
+                <div class="mb-3" style="background: var(--bs-light);opacity: 0.75; padding-top: 52px">
+                <input type="text" class="form-control" name="username" placeholder="Username" />
+                <input class="form-control" type="email" name="email" placeholder="Email">
+                <input type="password" class="form-control" name="password" placeholder="Password" />
+                <div class="mb-3"><input class="form-control" type="password" name="password" placeholder="Password"></div>
+                <div class="mb-3"><button class="btn btn-primary d-block w-100" type="submit" style="background: rgb(86, 198, 198);">Sign Up</button></div><a class="already" href="{% url 'rango:index' %}">Already have an account? Login here.</a><br /><a class="already" href="{% url 'rango:index' %}">or Go Back to Homepage</a>
+            </form>
+        </div>
+    </section>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/bs-init.js"></script>
+</body>
+
+</html>
