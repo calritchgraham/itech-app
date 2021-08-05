@@ -336,7 +336,7 @@ class AllCategories(View):
     def get(self, request):
         query = self.get_query()
         if query == None:
-             category_list = Category.objects.order_by('-likes')
+             category_list = Category.objects.order_by('name')
         else:
             category_list = Category.objects.filter(name__contains=query)
        
