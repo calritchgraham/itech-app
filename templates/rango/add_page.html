@@ -6,8 +6,8 @@
 {% endblock %}
     
 {% block body_block %}
-        <h1>Add Page to {{ category.name }}</h1>
-        <div>
+
+        <section class="login-clean" style="background: transparent;">
             <form id="category_form" method="post" action="{% url 'rango:add_page' category.slug %}">
                 {% csrf_token %}
                 {% for hidden in form.hidden_fields %}
@@ -18,7 +18,10 @@
                     {{ field.help_text }}
                     {{ field }}
                 {% endfor %}
-                <input type="submit" name="submit" value="Add Page" />
+                <h2 class="visually-hidden">Login Form</h2>
+                
+                <div class="mb-3"><button class="btn btn-primary d-block w-100" type="submit">Add Page</button></div>
             </form>
-        </div>  
+        </section> 
+        
 {% endblock %} 
