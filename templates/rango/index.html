@@ -69,6 +69,21 @@
 			        '<strong>There are no pages present.</strong>
 			    {% endif %}
             </div>
+            
+            <div class="col-md-6" style="padding:27px">
+                <h1>Most Liked Videos</h1>
+                {% if videos %}
+			        <ul style="background: var(--bs-light);opacity:0.75">
+				    {% for video in videos %}
+				    <li>
+					    <a href="{{ video.url}}">{{ video.title }}</a>
+				    </li>
+				{% endfor %}
+			        </ul>
+			    {% else %}
+			        '<strong>There are no video present.</strong>
+			    {% endif %}
+            </div>
         </div>
     </div>
     <footer class="footer-basic">
