@@ -158,14 +158,22 @@ def populate():
         }
     ]
     
+    no_pages = []
+    no_videos = []
 
     cats = {
         "Python": {"pages": python_pages, "videos": python_videos, "views": 128, "likes": 64},
         "Django": {"pages": django_pages, "videos": django_videos, "views": 64, "likes": 32},
         "Other Frameworks": {"pages": other_pages, "videos": other_videos, "views": 32, "likes": 16},
         "Java": {"pages": java_pages, "videos": java_videos, "views": 85, "likes": 112},
-        "JavaScript": {"pages": javaScript_pages, "videos": javaScript_videos, "views": "99", "likes": 54}
-    }
+        "JavaScript": {"pages": javaScript_pages, "videos": javaScript_videos, "views": "99", "likes": 54},
+        'Pascal': {'pages': no_pages, 'videos':no_videos, 'views': 0, 'likes': 0},
+        'Perl': {'pages': no_pages, 'videos':no_videos, 'views': 0, 'likes': 0},
+        'PHP': {'pages': no_pages, 'videos':no_videos, 'views': 0, 'likes': 0},
+        'Prolog': {'pages': no_pages, 'videos':no_videos, 'views': 0, 'likes': 0},
+        'PostScript': {'pages': no_pages, 'videos':no_videos, 'views': 0, 'likes': 0},
+        'Programming': {'pages': no_pages, 'videos':no_videos, 'views': 0, 'likes': 0},}
+    
 
     # Adds all the categories, then adds all the associated pages
     for cat, cat_data in cats.items():

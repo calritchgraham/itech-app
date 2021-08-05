@@ -7,42 +7,49 @@
 
 {% block body_block %}
 
-<form  method="get">
-    <input type="search" name="q" placeholder="Search Categories" class="form-control">
-  </form>
+<h1 class="text-light">Categories</h1>
 
-            
 
-    {% if returned %}   
+  <div class="col-md-6" style="border-color: var(--bs-dark);opacity: 1;padding:27px">
+    <form  method="get">
+        <input type="search" name="q" placeholder="Search Categories" size="50" class="form-control">
+      </form>
+      <br>
+    {% if returned %}
+        <ul style="background: var(--bs-light);opacity: 0.75">
         {% for category in returned %}
-                        <li>
-                            <a href="{% url 'rango:show_category' category.slug %}">{{ category.name }}</a>
-                        </li>
-                        {% endfor %}
-                        </ul>
-                        {% else %}
-                        <strong>There are no categories matching your search criteria.</strong>
-                    {% endif %}        
-</div>
+        <li>
+            <a href="{% url 'rango:show_category' category.slug %}">{{ category.name }}</a>
+        </li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <strong>There are no categories that match your search criteria.</strong>
+        <form method="get" action="{% url 'rango:all_cat' %}">
+            <button type="submit">Search Again</button>
+        </form>
+        <form method="get" action="{% url 'rango:search' %}">
+            <button type="submit">Add Category</button>
+        </form>
+    {% endif %}      
+
 <div>
-    Haven't found what you are looking for? Search the web.
+   
     <form class="form-inline"
         id="user-form"
             method="post"
-            action="{% url 'rango:search' %}">
+            action="{% url 'rango:search' %}"
+            >
     {% csrf_token %}
     <div class="form-group">
         <input class="form-control"
             type="text"
             size="50"
             name="query"
+            placeholder="Haven't found what you are looking for? Search the web..."
             value ="{{ query }}"
             id="query" />
     </div>
-
-    <button class="btn btn-primary"
-            type="submit"
-            name="submit">Search</button>
     </form>
 </div>
 {% endblock %}
