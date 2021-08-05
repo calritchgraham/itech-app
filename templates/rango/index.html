@@ -29,11 +29,12 @@
                 <form class="me-auto search-form" target="_self">
                     <div class="d-flex align-items-center"></div>
                 </form>
+                <a class="nav-link" href="{% url 'rango:profile' user.username %}" style= "padding-right: 14px;">Profile</a>
                 <a class="btn btn-light action-button" role="button" href="{% url 'auth_logout' %}?next={% url 'rango:index' %}">Logout</a>
                 {% else %}
                 <form class="me-auto search-form" target="_self">
                     <div class="d-flex align-items-center"></div>
-                </form><a href="{% url 'registration_register' %}" style="padding-right: 14px;">Sign up</a><a class="btn btn-light action-button" role="button" href="{% url 'auth_login' %}">Login</a>
+                </form><a class="nav-link" href="{% url 'registration_register' %}" style= "padding-right: 14px;" >Sign up</a><a class="btn btn-light action-button" role="button" href="{% url 'auth_login' %}">Login</a>
                     {% endif %}
             </div>
         </div>
