@@ -3,34 +3,66 @@
 {% load rango_template_tags %}
 <html>
     <head>
-        <title>
-            Rango - 
-            {% block title_block %}
-                How to Tango with Django!
-            {% endblock %}
-        </title>
+        <meta charset="utf-8">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+        <title>Rango</title>
+        <link rel="stylesheet" href="/static/assets/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/static/assets/fonts/ionicons.min.css">
+        <link rel="stylesheet" href="/static/assets/css/Footer-Basic.css">
+        <link rel="stylesheet" href="/static/assets/css/Login-Form-Dark.css">
+        <link rel="stylesheet" href="/static/assets/css/Navigation-with-Search.css">
+        <link rel="stylesheet" href="/static/assets/css/styles.css">
     </head>
+    
+    <body style="background: url(/static/images/rango_bg.jpg) top / auto space, var(--bs-white);opacity: 1;filter: blur(0px);">
+        <nav class="navbar navbar-light navbar-expand-md navigation-clean-search">
+            <div class="container"><a class="navbar-brand" href="{% url 'rango:index' %}">Rango</a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navcol-1">
+                    <ul class="navbar-nav">
+                    </ul>
+                    <em>
+                        {% if user.is_authenticated %}
+                            howdy {{ user.username }}!<br />
+                        {% else %}
+                            hey there partner!<br />
+                        {% endif %}
+                    </em>
+                    {% if user.is_authenticated %}
+                    <form class="me-auto search-form" target="_self">
+                        <div class="d-flex align-items-center"></div>
+                    </form>
+                    <a class="nav-link" href="{% url 'rango:profile' user.username %}" style= "padding-right: 14px;">Profile</a>
+                    <a class="btn btn-light action-button" role="button" href="{% url 'auth_logout' %}?next={% url 'rango:index' %}">Logout</a>
+                    {% else %}
+                    <form class="me-auto search-form" target="_self">
+                        <div class="d-flex align-items-center"></div>
+                    </form><a class="nav-link" href="{% url 'registration_register' %}" style= "padding-right: 14px;" >Sign up</a><a class="btn btn-light action-button" role="button" href="{% url 'auth_login' %}">Login</a>
+                        {% endif %}
+                </div>
+            </div>
+        </nav>
     <body>
         <div>
         {% block body_block %}
         {% endblock %}
         </div>
-         <hr />
-         <div>
-             <ul>
-             {% if user.is_authenticated %}
-                 <li><a href="{% url 'rango:restricted' %}">Restricted Page</a></li>
-                 <li><a href="{% url 'rango:add_category' %}">Add a New Category</a></li>
-                 <li><a href="{% url 'auth_logout' %}?next={% url 'rango:index' %}">Logout</a></li>
-                 {% else %}
-                     <li><a href="{% url 'registration_register' %}">Sign Up</a></li>
-                     <li><a href="{% url 'auth_login' %}">Login</a></li>
-                 {% endif %}
-                     <li><a href="{% url 'rango:about' %}">About</a></li>
-                     <li><a href="{% url 'rango:index' %}">Index</a></li>
-                 </ul>
-            </div>
-            <script src="{% static "js/jquery-3.3.1.min.js" %}" crossorigin="anonymous"></script>
+        <footer class="footer-basic">
+            <div class="social"></div>
+            <ul class="list-inline">
+                <li class="list-inline-item"><a href="{% url 'rango:index' %}">Home</a></li>
+                <li class="list-inline-item"><a href="{% url 'rango:about' %}">About</a></li>
+                {% if user.is_authenticated %}
+                <li class="list-inline-item"><a href="{% url 'auth_logout' %}?next={% url 'rango:index' %}">Log out</a></li>
+                {% else %}
+                <li class="list-inline-item"><a href="{% url 'auth_login' %}">Login</a></li>
+                <li class="list-inline-item"><a href="{% url 'registration_register' %}">Sign up</a></li>
+                {% endif %}
+            </ul>
+            <p class="copyright">In The Loop 2021</p>
+        </footer>
+            <script src="/static/assets/bootstrap/js/bootstrap.min.js"></script>
+            <script src="{% static 'js/jquery-3.3.1.min.js' %}" crossorigin="anonymous"></script>
             <script src="{% static 'js/rango-ajax.js' %}" crossorigin="anonymous"></script>
         </body>
 </html>
