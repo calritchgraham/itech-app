@@ -19,9 +19,10 @@
 <body style="background: url('/static/assets/img/rango_bg.1.jpg') top / auto;">
     <section class="register-photo">
         <div class="form-container">
-            <form method="post">
+            <form method="post" style="padding: 35px">
+                <div class="mb-3" style="background: var(--bs-light); opacity: 0.75; padding-top: 52px">
                 <h2 class="text-center" ><strong>Create</strong> an account.</h2>
-                <div class="mb-3" style="background: var(--bs-light);opacity: 0.75; padding-top: 52px">
+                {% csrf_token %}
                 <input type="text" class="form-control" name="username" placeholder="Username" />
                 <input class="form-control" type="email" name="email" placeholder="Email">
                 <input type="password" class="form-control" name="password" placeholder="Password" />
