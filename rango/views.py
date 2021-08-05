@@ -13,12 +13,13 @@ from django.shortcuts import redirect
 from django.contrib.auth.decorators import login_required
 from datetime import datetime
 from rango.bing_search import run_query
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, ListView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.utils.decorators import method_decorator
 from django.views import View
 from django.contrib.auth.models import User
 from rango.models import UserProfile
+from django.db.models import Q
 
 
 def index(request):
@@ -296,6 +297,7 @@ class LikeCategoryView(View):
 
         return HttpResponse(category.likes)
 
+
 class LikePageView(View):
     @method_decorator(login_required)
     def get(self, request):
@@ -330,6 +332,21 @@ class LikeVideoView(View):
 
         return HttpResponse(video.likes)
 
+class AllCategories(View):
+    def get(self, request):
+        query = self.get_query()
+        if query == None:
+             category_list = Category.objects.order_by('-likes')
+        else:
+            category_list = Category.objects.filter(name__contains=query)
+       
+        return render(request, 'rango/all_cat.html', {'returned': category_list})
+
+    def get_query(this_object):
+        return this_object.request.GET.get('q')
+       
+
+
 class CategorySuggestionView(View):
     def get(self, request):
         if 'suggestion' in request.GET:
@@ -345,13 +362,8 @@ class CategorySuggestionView(View):
         if len(category_list) == 0:
             category_list = [Category.objects.order_by('-likes')]
 
-        return render(request, 'rango/all_categories.html', {'returned': category_list})
-
-class AllCategories(View):
-    def get(self, request):
-        category_list = Category.objects.order_by('-likes')
-
-        return render(request, 'rango/all_categories.html', {'returned': category_list})
+        return render(request, 'rango/categories.html', {'returned': category_list})
+            
 
 
 @login_required
