@@ -54,7 +54,7 @@
                             <p id="like_page_count" style=color:black>has {{ page.likes }} likes! </p></li>
                         <div class="text-center text-light">
                             {% if user.is_authenticated %}
-                            <button id="like_page_btn" data-pageid="{{ page.id }}" style="background-color:rgb(86,198,198); color:white;"class="btn btn-light action-button" type="button">
+                            <button class="like_page_btn" data-pageid="{{ page.id }}" style="background-color:rgb(86,198,198); color:white;"class="btn btn-light action-button" type="button">
                                 <span data-feather="thumbs-up"></span>
                                 Like Page
                             </button>
@@ -86,7 +86,7 @@
                     <p id="like_video_count" style=color:black>has {{ video.likes }} likes! </p></li>
                 <div class="text-center text-light">
                     {% if user.is_authenticated %}
-                    <button id="like_video_btn" data-videoid="{{ video.id }}" style="background-color:rgb(86,198,198); color:white;"class="btn btn-light action-button" type="button">
+                    <button class="like_video_btn" data-videoid="{{ video.id }}" style="background-color:rgb(86,198,198); color:white;"class="btn btn-light action-button" type="button">
                         <span data-feather="thumbs-up"></span>
                         Like Video
                     </button>
