@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="/static/assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="/static/assets/fonts/ionicons.min.css">
     <link rel="stylesheet" href="/static/assets/css/Footer-Basic.css">
+<<<<<<< HEAD
     <link rel="stylesheet" href="/static/assets/css/Login-Form-Dark.css">
     <link rel="stylesheet" href="/static/assets/css/Navigation-with-Search.css">
     <link rel="stylesheet" href="/static/assets/css/styles.css">
@@ -55,3 +56,45 @@
 </html>
 
 
+=======
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="/static/assets/css/Login-Form-Dark.css">
+    <link rel="stylesheet" href="/static/assets/css/Navigation-with-Search.css">
+    <link rel="stylesheet" href="/static/assets/css/Registration-Form-with-Photo.css">
+    <link rel="stylesheet" href="/static/assets/css/styles.css">
+</head>
+
+<body style="background: url('/static/assets/img/rango_bg.1.jpg') top / auto;">
+    <section class="register-photo" style="background: transparent">
+        <div class="form-container">
+            <form method="post" style="padding: 35px">
+                <div class="mb-3" style="background: var(--bs-light); opacity: 0.75; padding-top: 52px">
+                <h2 class="text-center" ><strong>Create</strong> an account.</h2>
+                {% csrf_token %}
+                <input type="text" class="form-control" name="username" placeholder="Username" />
+                <input class="form-control" type="email" name="email" placeholder="Email">
+                <input type="password" class="form-control" name="password" placeholder="Password" />
+                <div class="mb-3"><button class="btn btn-primary d-block w-100" type="submit" style="background: rgb(86, 198, 198);">Sign Up</button></div><a class="already" href="{% url 'rango:index' %}">Already have an account? Login here.</a><br /><a class="already" href="{% url 'rango:index' %}">or Go Back to Homepage</a>
+            </form>
+        </div>
+    </section>
+    <footer class="footer-basic">
+        <div class="social"></div>
+        <ul class="list-inline">
+            <li class="list-inline-item"><a href="{% url 'rango:index' %}">Home</a></li>
+            <li class="list-inline-item"><a href="{% url 'rango:about' %}">About</a></li>
+            {% if user.is_authenticated %}
+            <li class="list-inline-item"><a href="{% url 'auth_logout' %}?next={% url 'rango:index' %}">Log out</a></li>
+            {% else %}
+            <li class="list-inline-item"><a href="{% url 'auth_login' %}">Login</a></li>
+            <li class="list-inline-item"><a href="{% url 'registration_register' %}">Sign up</a></li>
+            {% endif %}
+        </ul>
+        <p class="copyright">Company Name © 2021</p>
+    </footer>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/bs-init.js"></script>
+</body>
+
+</html>
+>>>>>>> 113d33c1af714ab12cbfb0edb04542c953ddbb85
