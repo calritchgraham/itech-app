@@ -1,7 +1,10 @@
 .footer-basic {
-  padding: 40px 0;
   background-color: #ffffff;
   color: #4b4c4d;
+  clear: both;
+  position: relative;
+  height: 200px;
+  margin-top: 600px;
 }
 
 .footer-basic ul {
