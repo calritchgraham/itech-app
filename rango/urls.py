@@ -23,6 +23,7 @@ urlpatterns = [
     path('all_categories/', views.AllCategories.as_view(), name='all_categories'),
     path('register_profile/', views.register_profile, name='register_profile'),
     path('profile/<username>/', views.ProfileView.as_view(), name='profile'),
-    path('about/', views.AboutView.as_view(), name='about')
+    path('about/', views.AboutView.as_view(), name='about'),
+    path('all_cat/', views.AllCategories.as_view(), name='all_cat'),
    
 ]
