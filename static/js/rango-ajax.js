@@ -11,27 +11,29 @@ $(document).ready(function() {
             })
     });
 
-    $('#like_page_btn').click(function() {
+    $('.like_page_btn').click(function() {
         var pageIdVar;
         pageIdVar = $(this).attr('data-pageid');
+        var clickedButton = $(this);
 
         $.get('/rango/like_page/',
             {'page_id': pageIdVar},
             function(data) {
-                $('.like_page_count').html(data);
-                $('#like_page_btn').hide();
+                $('#like_page_count').html(data);
+                clickedButton.hide();
             })
     });
 
-    $('#like_video_btn').click(function() {
+    $('.like_video_btn').click(function() {
         var videoIdVar;
         videoIdVar = $(this).attr('data-videoid');
+        var clickedButton = $(this);
 
         $.get('/rango/like_video/',
             {'video_id': videoIdVar},
             function(data) {
-                $('#like_video_count').html(data);
-                $('#like_video_btn').hide();
+                $("#like_video_count").html(data); 
+                clickedButton.hide();
             })
     });
 

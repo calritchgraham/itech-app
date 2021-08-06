@@ -332,9 +332,9 @@ class LikeVideoView(View):
     @method_decorator(login_required)
     def get(self, request):
         video_id = request.GET['video_id']
-
+              
         try:
-            video = Video.objects.get(id=int(video_id))
+            video = Video.objects.get(id=int(video_id))  
         except Video.DoesNotExist:
             return HttpResponse(-1)
         except ValueError:
@@ -342,7 +342,7 @@ class LikeVideoView(View):
         
         video.likes = video.likes + 1
         video.save()
-
+        videos = Video.objects.filter(category=(video.category))
         return HttpResponse(video.likes)
 
 class AllCategories(View):
