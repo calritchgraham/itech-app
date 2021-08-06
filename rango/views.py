@@ -342,7 +342,7 @@ class LikeVideoView(View):
         
         video.likes = video.likes + 1
         video.save()
-        videos = Video.objects.filter(category=(video.category))
+        # videos = Video.objects.filter(category=(video.category))
         return HttpResponse(video.likes)
 
 class AllCategories(View):

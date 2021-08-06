@@ -19,7 +19,7 @@ $(document).ready(function() {
         $.get('/rango/like_page/',
             {'page_id': pageIdVar},
             function(data) {
-                $('#like_page_count').html(data);
+                $("[pageid=" + pageIdVar + "]").html(data);
                 clickedButton.hide();
             })
     });
@@ -28,11 +28,12 @@ $(document).ready(function() {
         var videoIdVar;
         videoIdVar = $(this).attr('data-videoid');
         var clickedButton = $(this);
+        var vidTitle = $(this).attr('title');
 
         $.get('/rango/like_video/',
             {'video_id': videoIdVar},
             function(data) {
-                $("#like_video_count").html(data); 
+                $("[videoid=" + videoIdVar + "]").html(data);
                 clickedButton.hide();
             })
     });

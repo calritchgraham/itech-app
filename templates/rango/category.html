@@ -51,12 +51,12 @@
                     <ul>
                         {% for page in pages %}
                         <li><a href="{{ page.url }}"> {{ page.title }}</a>
-                            <strong class="like_page_count">{{ page.likes }}</strong> likes
+                            <strong pageid="{{ page.id }}">{{ page.likes }}</strong> likes</li>
                            
                         <div class="text-center text-light">
                             {% if user.is_authenticated %}
                             <button class="like_page_btn" data-pageid="{{ page.id }}" style="background-color:rgb(86,198,198); color:white;"class="btn btn-light action-button" type="button">
-                                Like Page
+                                Like
                             </button>
                         </br>
                     </br>
@@ -83,12 +83,12 @@
             <ul>
                 {% for video in videos %}
                 <li><a href="{{ video.url }}">{{ video.title }}</a>
-                    <strong class="like_video_count">{{ video.likes }}</strong> likes</li>
+                    <strong videoid="{{ video.id }}">{{ video.likes }}</strong> likes</li>
                 <div class="text-center text-light">
                     {% if user.is_authenticated %}
                     <button class="like_video_btn" data-videoid="{{ video.id }}" style="background-color:rgb(86,198,198); color:white;"class="btn btn-light action-button" type="button">
                         <span data-feather="thumbs-up"></span>
-                        Like Video
+                        Like
                     </button>
                 </br>
             </br>
