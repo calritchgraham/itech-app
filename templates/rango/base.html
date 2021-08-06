@@ -30,6 +30,7 @@
                             hey there partner!<br />
                         {% endif %}
                     </em>
+                    <a class="nav-link" href="{% url 'rango:all_cat' %}" style= "padding-right: 14px;">Categories</a>
                     {% if user.is_authenticated %}
                     <form class="me-auto search-form" target="_self">
                         <div class="d-flex align-items-center"></div>

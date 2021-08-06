@@ -172,7 +172,24 @@ def populate():
         'PHP': {'pages': no_pages, 'videos':no_videos, 'views': 0, 'likes': 0},
         'Prolog': {'pages': no_pages, 'videos':no_videos, 'views': 0, 'likes': 0},
         'PostScript': {'pages': no_pages, 'videos':no_videos, 'views': 0, 'likes': 0},
-        'Programming': {'pages': no_pages, 'videos':no_videos, 'views': 0, 'likes': 0},}
+        'AJAX': {'pages': no_pages, 'videos':no_videos, 'views': 0, 'likes': 0},
+        'CSS': {'pages': no_pages, 'videos':no_videos, 'views': 0, 'likes': 0},
+        'HTML': {'pages': no_pages, 'videos':no_videos, 'views': 0, 'likes': 0},
+        'SQL': {'pages': no_pages, 'videos':no_videos, 'views': 0, 'likes': 0},
+        'Angular': {'pages': no_pages, 'videos':no_videos, 'views': 0, 'likes': 0},
+        'TypeScript': {'pages': no_pages, 'videos':no_videos, 'views': 0, 'likes': 0},
+        'Ruby': {'pages': no_pages, 'videos':no_videos, 'views': 0, 'likes': 0},
+        'Basic': {'pages': no_pages, 'videos':no_videos, 'views': 0, 'likes': 0},
+        'Assembly': {'pages': no_pages, 'videos':no_videos, 'views': 0, 'likes': 0},
+        'Ballerina': {'pages': no_pages, 'videos':no_videos, 'views': 0, 'likes': 0},
+        'Darwin': {'pages': no_pages, 'videos':no_videos, 'views': 0, 'likes': 0},
+        'Haxe': {'pages': no_pages, 'videos':no_videos, 'views': 0, 'likes': 0},
+        'Kaleidoscope': {'pages': no_pages, 'videos':no_videos, 'views': 0, 'likes': 0},
+        'Logtalk': {'pages': no_pages, 'videos':no_videos, 'views': 0, 'likes': 0},
+        'Oak': {'pages': no_pages, 'videos':no_videos, 'views': 0, 'likes': 0},
+        'Uniface': {'pages': no_pages, 'videos':no_videos, 'views': 0, 'likes': 0},
+        'Zeno': {'pages': no_pages, 'videos':no_videos, 'views': 0, 'likes': 0},
+        }
     
 
     # Adds all the categories, then adds all the associated pages

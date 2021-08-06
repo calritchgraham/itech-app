@@ -24,13 +24,15 @@
         {% endfor %}
         </ul>
     {% else %}
+    <div>
         <strong>There are no categories that match your search criteria.</strong>
         <form method="get" action="{% url 'rango:all_cat' %}">
-            <button type="submit">Search Again</button>
+            <button type="submit" style="background-color:rgb(86,198,198); color:white;">Search Again</button>
         </form>
-        <form method="get" action="{% url 'rango:search' %}">
-            <button type="submit">Add Category</button>
+        <form method="get" action="{% url 'rango:add_category' %}">
+            <button type="submit" style="background-color:rgb(86,198,198); color:white;">Add Category</button>
         </form>
+    </div>
     {% endif %}      
 
 <div>
