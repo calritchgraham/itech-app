@@ -28,7 +28,7 @@ $(document).ready(function() {
         videoIdVar = $(this).attr('data-videoid');
 
         $.get('/rango/like_video/',
-            {'video': videoIdVar},
+            {'video_id': videoIdVar},
             function(data) {
                 $('#like_video_count').html(data);
                 $('#like_video_btn').hide();

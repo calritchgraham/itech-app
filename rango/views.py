@@ -318,7 +318,7 @@ class LikePageView(View):
 class LikeVideoView(View):
     @method_decorator(login_required)
     def get(self, request):
-        video_id = request.GET['category_id']
+        video_id = request.GET['video_id']
 
         try:
             video = Video.objects.get(id=int(video_id))
