@@ -6,7 +6,7 @@
 {% endblock %}
     
 {% block body_block %}
-
+<h1 class="text-center text-light">Add Page to {{ category.name }}</h1>
         <section class="login-clean" style="background: transparent;">
             <form id="category_form" method="post" action="{% url 'rango:add_page' category.slug %}">
                 {% csrf_token %}

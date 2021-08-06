@@ -6,7 +6,8 @@
 {% endblock %}
     
 {% block body_block %}
-        <h1>Add Video to {{ category.name }}</h1>
+        <h1 class="text-center text-light">Add Video to {{ category.name }}</h1>
+        <section class="login-clean" style="background: transparent;">
         <div>
             <form id="category_form" method="post" action="{% url 'rango:add_video' category.slug %}">
                 {% csrf_token %}
@@ -18,7 +19,11 @@
                     {{ field.help_text }}
                     {{ field }}
                 {% endfor %}
-                <input type="submit" name="submit" value="Add Video" />
+                <h2 class="visually-hidden">Login Form</h2>
+                
+                <div class="mb-3"><button class="btn btn-primary d-block w-100" type="submit">Add Video</button></div>
+                <!-- <input type="submit" name="submit" value="Add Video" /> -->
             </form>
         </div>  
+    </section> 
 {% endblock %} 

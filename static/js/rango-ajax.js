@@ -11,7 +11,7 @@ $(document).ready(function() {
             })
     });
 
-    $('.like_page_btn').click(function() {
+    $('#like_page_btn').click(function() {
         var pageIdVar;
         pageIdVar = $(this).attr('data-pageid');
 
@@ -23,7 +23,7 @@ $(document).ready(function() {
             })
     });
 
-    $('.like_video_btn').click(function() {
+    $('#like_video_btn').click(function() {
         var videoIdVar;
         videoIdVar = $(this).attr('data-videoid');
 
